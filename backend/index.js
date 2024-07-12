@@ -9,8 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
+require('dotenv').config();
 
-const port = 6500;
+
+const port = process.env.PORT|| 6500;
 
 mongoose.connect('mongodb+srv://freenafrancis2000:pxk7zr5wan7dpoOs@cluster0.e7dpoiw.mongodb.net/crudwithimage',)
   .then(() => {
@@ -32,6 +34,10 @@ const storage = multer.diskStorage({
 
 // Initialize multer upload
 const upload = multer({ storage: storage });
+
+app.get('/',(req,res)=>{
+  res.send("server is Running");
+})
 
 // POST method to create a new user
 app.post('/users', upload.single('image'), async (req, res) => {

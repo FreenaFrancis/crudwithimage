@@ -8,7 +8,7 @@ const UserTable = () => {
     // Fetch data from the server when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:6500/getuser');
+        const response = await axios.get('https://crudwithimagserver.onrender.com/getuser');
         setUsers(response.data); // Set the users state with the fetched data
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -33,7 +33,7 @@ const UserTable = () => {
             <tr key={user._id}>
               <td>{user.name}</td>
               <td>{user.place}</td>
-              <td><img src={`http://localhost:6500/images/${user.image}`} alt={user.name} style={{ maxWidth: '100px' }} /></td>
+              <td><img src={`https://crudwithimagserver.onrender.com/images/${user.image}`} alt={user.name} style={{ maxWidth: '100px' }} /></td>
             </tr>
           ))}
         </tbody>

@@ -14,7 +14,7 @@ const navigate=useNavigate()
     formData.append('image', image);
 
     try {
-      await axios.post('http://localhost:6500/users', formData, {
+      await axios.post('https://crudwithimagserver.onrender.com/users', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
