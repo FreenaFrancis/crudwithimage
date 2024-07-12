@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import UserForm from './components/Form';
 import UserTable from './components/View';

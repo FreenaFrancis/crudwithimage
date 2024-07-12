@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
 const UserForm = () => {
   const [name, setName] = useState('');
   const [place, setPlace] = useState('');
   const [image, setImage] = useState(null);
-const navigate=useNavigate()
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -24,7 +26,7 @@ const navigate=useNavigate()
       setName('');
       setPlace('');
       setImage(null);
-      navigate('/view')
+      navigate('/view');
     } catch (error) {
       console.error('Error creating user:', error);
       alert('Failed to create user');
@@ -32,22 +34,41 @@ const navigate=useNavigate()
   };
 
   return (
-    <div>
-      <h2>Create User</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+    <div className="container">
+      <h2 className="title">Create User</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <label className="label" htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="input"
+            placeholder="Enter your name"
+          />
         </div>
-        <div>
-          <label>Place:</label>
-          <input type="text" value={place} onChange={(e) => setPlace(e.target.value)} />
+        <div className="form-group">
+          <label className="label" htmlFor="place">Place:</label>
+          <input
+            type="text"
+            id="place"
+            value={place}
+            onChange={(e) => setPlace(e.target.value)}
+            className="input"
+            placeholder="Enter your place"
+          />
         </div>
-        <div>
-          <label>Image:</label>
-          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+        <div className="form-group">
+          <label className="label" htmlFor="image">Image:</label>
+          <input
+            type="file"
+            id="image"
+            onChange={(e) => setImage(e.target.files[0])}
+            className="input"
+          />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn-submit">Submit</button>
       </form>
     </div>
   );
