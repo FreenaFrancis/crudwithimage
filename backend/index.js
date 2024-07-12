@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 const port = 6500;
 
-mongoose.connect('mongodb://127.0.0.1:27017/crudwithimage',)
+mongoose.connect('mongodb+srv://freenafrancis2000:pxk7zr5wan7dpoOs@cluster0.e7dpoiw.mongodb.net/crudwithimage',)
   .then(() => {
     console.log("DB is connected");
   })
